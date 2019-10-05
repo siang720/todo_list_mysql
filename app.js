@@ -18,8 +18,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // setting method-override
 app.use(methodOverride("_method"));
 
-// 載入路由器
+// 首頁路由
 app.use("/", require("./routes/home"));
+
+// 認證系統路由
+// login page
+app.get("/users/login", (req, res) => {
+  res.render("login");
+});
+// login submit
+app.post("/users/login", (req, res) => {
+  res.send("login");
+});
+// register page
+app.get("/users/register", (req, res) => {
+  res.render("register");
+});
+// register submit
+app.post("/users/register", (req, res) => {
+  res.send("register");
+});
+// logout
+app.get("/users/logout", (req, res) => {
+  res.send("logout");
+});
 
 // start listen
 app.listen(port, () => {
