@@ -16,6 +16,7 @@ router.post("/login", (req, res, next) => {
     successRedirect: "/",
     failureRedirect: "/users/login"
   })(req, res, next);
+  console.log(res.locals.warning_msg);
 });
 // register page
 router.get("/register", (req, res) => {
@@ -50,7 +51,9 @@ router.post("/register", (req, res) => {
 });
 // logout
 router.get("/logout", (req, res) => {
-  res.send("logout");
+  req.logout();
+  req.flash("success_msg", "你已經成功登出");
+  res.redirect("/users/login");
 });
 
 module.exports = router;

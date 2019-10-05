@@ -44,6 +44,16 @@ app.use((req, res, next) => {
   next();
 });
 
+// 登入後可以取得使用者的資訊方便我們在 view 裡面直接使用
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  res.locals.isAuthenticated = req.isAuthenticated();
+  // 新增兩個 flash message 變數
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.warning_msg = req.flash("warning_msg");
+  next();
+});
+
 // 載入路由器
 app.use("/", require("./routes/home"));
 app.use("/users", require("./routes/user"));
