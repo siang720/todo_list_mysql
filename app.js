@@ -9,10 +9,6 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require("connect-flash");
 
-const db = require("./models");
-const Todo = db.Todo;
-const User = db.User;
-
 //template engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
