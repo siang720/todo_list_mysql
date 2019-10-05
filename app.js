@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const passport = require("passport");
+const flash = require("connect-flash");
 
 const db = require("./models");
 const Todo = db.Todo;
@@ -15,6 +16,9 @@ const User = db.User;
 //template engine
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+
+// 載入系統訊息
+app.use(flash());
 
 // setting body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,13 +44,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// 首頁路由
+// 載入路由器
 app.use("/", require("./routes/home"));
-
-// 載入認證系統路由
 app.use("/users", require("./routes/user"));
+app.use("/todos", require("./routes/todo"));
 
 // start listen
 app.listen(port, () => {
-  console.log("App is running on localhost:3000");
+  console.log(`App is running on localhost:${port}`);
 });
