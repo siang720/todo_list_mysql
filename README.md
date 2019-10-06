@@ -1,7 +1,7 @@
 ## Todo List with MySQL database
 
 這是一個讓使用者可以建立 Todo List 的網站
-![Index](https://github.com/siang720/todo_list_mysql/blob/master/image/demo_index.png)
+![Index](https://github.com/siang720/todo_list_mysql/blob/master/image/index.png)
 
 ## Feature
 
