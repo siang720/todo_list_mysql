@@ -1,8 +1,14 @@
-<form action="/todos" method="POST">
-  <div class="input-group mb-3">
-    <input type="text" placeholder="name" name="name" class="form-control">
-    <div class="input-group-append">
-      <button type="submit" class="btn btn-success">Create</button>
-    </div>
+<div class="row mt-5">
+  <div class="col-md-6 mx-auto">
+    <form action="/todos" method="POST">
+      <div class="input-group mb-3">
+        <input type="text" placeholder="name" name="name" class="form-control">
+        <div class="input-group-append">
+          <a href="#" onclick="this.parentNode.parentNode.parentNode.submit()" class="ml-3 my-auto"><i
+              class="fas fa-plus-square fa-2x"></i></a>
+        </div>
+      </div>
+    </form>
+    <a href="/" class="btn btn-secondary btn-lg btn-block">Back to Todo List</a>
   </div>
-</form>
+</div>

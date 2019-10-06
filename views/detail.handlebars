@@ -1,14 +1,20 @@
-<form action="/todos/{{{todo.id}}}/delete?_method=DELETE" method="post" style="display:inline">
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <div class="input-group-text">
-        <input type="checkbox" name="done" {{#if todo.done }} checked{{/if}} disabled />
+<div class="row mt-5">
+  <div class="col-md-6 mx-auto">
+    <form action="/todos/{{{todo.id}}}/delete?_method=DELETE" method="post" style="display:inline">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            <input type="checkbox" name="done" {{#if todo.done }} checked{{/if}} disabled />
+          </div>
+        </div>
+        <input type="text" placeholder="name" name="name" value="{{{todo.name}}}" class="form-control" disabled>
+        <div class="input-group-append">
+          <a href="/todos/{{{todo.id}}}/edit" class="mx-3"><i class="far fa-edit fa-2x align-middle"></i></a>
+          <a href="#" onclick="this.parentNode.parentNode.parentNode.submit()"><i
+              class="fas fa-trash-alt fa-2x align-middle"></i></a>
+        </div>
       </div>
-    </div>
-    <input type="text" placeholder="name" name="name" value="{{{todo.name}}}" class="form-control" disabled>
-    <div class="input-group-append">
-      <a href="/todos/{{{todo.id}}}/edit" class="btn btn-success">edit</a>
-      <button type="submit" class="btn btn-danger">delete</button>
-    </div>
+    </form>
+    <a href="/" class="btn btn-secondary btn-lg btn-block mt-3">Back to Todo List</a>
   </div>
-</form>
+</div>
